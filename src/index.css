@@ -64,5 +64,20 @@ body{
     padding: 10px;
     margin: 10px;
     border-radius: 4px;
-    width: 40%;
+    width: 30%;
+    
+}
+/* option:hover{
+    cursor: pointer;
+} */
+#filter{
+  display: flex;
+  justify-content: space-between;
+
+}
+#sort{
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+
 }
