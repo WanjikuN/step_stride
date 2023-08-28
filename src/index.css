@@ -5,6 +5,7 @@
 }
 body{
   background-color: rgba(144, 238, 144, 0.014);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 #product img{
   width:100%;
@@ -16,7 +17,14 @@ body{
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
+  height: 55vh;
+  overflow-y: scroll;
   
+}
+/* Hide scroll bar */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 #product{
   border: 3px solid rgba(144, 238, 144, 0.05);
@@ -35,10 +43,26 @@ body{
 #row2{
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 0px 15px 0px 15px;
 }
 #product h3{
-  padding: 10px;
+  padding: 0px 15px 0px 15px;
   display: flex;
   justify-content: center;
+}
+#products-cont{
+  /* border: 1px solid black; */
+  padding-top: 20px;
+
+}
+/* #filter{
+    border: 1px solid black;
+    padding: 10px;
+
+} */
+.filter{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    width: 40%;
 }
