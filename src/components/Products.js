@@ -4,6 +4,7 @@ import Filter from "./Filter";
 export default function Products(){
     const[sneakers, setSneakers] = useState([]);
     const[sname, setName] = useState("");
+    const[selectedGender,setSelectedGender] = useState("All")
     // console.log(sneakers)
     // fetch  from the json db and assign them to sneakers
     useEffect(()=>{
@@ -20,12 +21,18 @@ export default function Products(){
         if(sneakers === "") return true;
         return sneaker.name.toLowerCase().includes(sname.toLowerCase())
     })
+    function handleGender(e){
+        e.preventDefault();
+        setSelectedGender(e.target.value);
+    }
+    const sortedGender = selectedGender ==="All"? sneakersDisplay: sneakersDisplay.filter(s=>s.gender.toLowerCase() === selectedGender.toLowerCase());
+    
     return (
         <div id ="products-cont">
-        <Filter handleName={handleName}/>
+        <Filter handleName={handleName} handleGender={handleGender}/>
         <div id="products">
             {/* Map through sneakers and display each  */}
-        {sneakersDisplay.map(sneaker=>{
+        {sortedGender.map(sneaker=>{
             return <Product key={sneaker.id} name={sneaker.name} brand={sneaker.brand} gender={sneaker.gender} category={sneaker.category} price={sneaker.price} stock={sneaker.items_left} url={sneaker.imageURL}/>
         })}
         </div>

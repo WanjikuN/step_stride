@@ -1,5 +1,5 @@
 export default function Product({name,brand, gender,category,price,stock,url}){
-   
+//    console.log(gender.toLowerCase())
     return(
         <div id="product">
 
