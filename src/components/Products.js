@@ -13,7 +13,7 @@ export default function Products(){
         <div id="products">
             {/* Map through sneakers and display each  */}
         {sneakers.map(sneaker=>{
-            return <Product key={sneaker.id} name={sneaker.name} brand={sneaker.brand} gender={sneaker.gender} category={sneaker.category} price={sneaker.price} stock={sneaker.items_left} url={sneaker.url}/>
+            return <Product key={sneaker.id} name={sneaker.name} brand={sneaker.brand} gender={sneaker.gender} category={sneaker.category} price={sneaker.price} stock={sneaker.items_left} url={sneaker.imageURL}/>
         })}
         </div>
     )
