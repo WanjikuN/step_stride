@@ -65,6 +65,9 @@ function Navbar() {
           <ListItem>
             <NavLink to="/contact">Contact</NavLink>
           </ListItem>
+          <ListItem>
+            <NavLink to="/login">Login</NavLink>
+          </ListItem>
         </List>
       </LinksContainer>
       <CartIcon icon={faShoppingCart} size="lg" />
