@@ -1,12 +1,22 @@
 import './App.css';
 import LoginSignup from './components/LoginSignup';
+import ProductDetail from './components/ProductDetails';
 import Products from './components/Products';
-
+import {Routes, Route} from "react-router-dom";
+import React, { useEffect } from 'react';
 function App() {
+  useEffect(() => {
+    document.title = "Step & Stride"; // document title 
+  }, []);
   return (
     <div id="container">
-    <Products />
-    <LoginSignup />
+    {/* <Products />
+    <LoginSignup /> */}
+    <Routes>
+    <Route path="/login" element={<LoginSignup />}/>
+    <Route path="/" element={<Products/>}/>
+    <Route path="/products/:id" element={<ProductDetail/>}/>
+    </Routes>
     </div>
   );
 }

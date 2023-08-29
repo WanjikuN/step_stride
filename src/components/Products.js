@@ -4,7 +4,7 @@ import Filter from "./Filter";
 export default function Products(){
     const[sneakers, setSneakers] = useState([]);
     const[sname, setName] = useState("");
-    const[selectedGender,setSelectedGender] = useState("All")
+    const[selectedGender,setSelectedGender] = useState("All");
     const[selectedBrand, setSelectedBrand] = useState("All");
     // console.log(sneakers)
     // fetch  from the json db and assign them to sneakers
@@ -41,7 +41,7 @@ export default function Products(){
         <div id="products">
             {/* Map through sneakers and display each  */}
         {sortedBrand.map(sneaker=>{
-            return <Product key={sneaker.id} name={sneaker.name} brand={sneaker.brand} gender={sneaker.gender} category={sneaker.category} price={sneaker.price} stock={sneaker.items_left} url={sneaker.imageURL}/>
+            return <Product key={sneaker.id} id={sneaker.id} name={sneaker.name} brand={sneaker.brand} gender={sneaker.gender} category={sneaker.category} price={sneaker.price} stock={sneaker.items_left} url={sneaker.imageURL}/>
         })}
         </div>
         </div>
