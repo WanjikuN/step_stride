@@ -38,9 +38,9 @@
 .input{
     display: flex;
     align-items: center;
-    margin: auto;
-    width: 500px;
-    height: 70px;
+    margin: 2px;
+    width: 98%;
+    height: 90%;
     background-color: grey;
     border-radius: 8px;
 }
@@ -54,7 +54,7 @@
 .Submit-container{
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40%;
     margin: 60px auto;
 }
 
@@ -70,4 +70,9 @@
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
+}
+
+.grey{
+    background: grey;
+    color: black;
 }
