@@ -8,18 +8,20 @@ const Nav = styled.nav`
   background-color: green;
   color: white;
   display: flex;
-  justify-content: space-between; /* Align items at the start and end */
-  align-items: center; /* Vertically center items */
-  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px;
 `;
 
 const Logo = styled.h1`
   margin: 0;
+  display: flex;
+  align-items: center;
 `;
 
 const List = styled.ul`
   list-style: none;
-  padding: 30px;
+  padding: 0;
   margin: 0;
   display: flex;
 `;
@@ -37,23 +39,35 @@ const NavLink = styled(RouterLink)`
   }
 `;
 
+const CartIcon = styled(FontAwesomeIcon)`
+  font-size: 24px;
+`;
+
+const LinksContainer = styled.div`
+  margin-left: auto;
+  display: flex;
+`;
+
 function Navbar() {
   return (
     <Nav>
       <Logo>
-        <FontAwesomeIcon icon={faShoppingCart} /> Step-Stride
+        <span>Step-Stride</span>
       </Logo>
-      <List>
-        <ListItem>
-          <NavLink to="/">Home</NavLink>
-        </ListItem>
-        <ListItem>
-          <NavLink to="/about">About</NavLink>
-        </ListItem>
-        <ListItem>
-          <NavLink to="/contact">Contact</NavLink>
-        </ListItem>
-      </List>
+      <LinksContainer>
+        <List>
+          <ListItem>
+            <NavLink to="/">Home</NavLink>
+          </ListItem>
+          <ListItem>
+            <NavLink to="/about">About</NavLink>
+          </ListItem>
+          <ListItem>
+            <NavLink to="/contact">Contact</NavLink>
+          </ListItem>
+        </List>
+      </LinksContainer>
+      <CartIcon icon={faShoppingCart} size="lg" />
     </Nav>
   );
 }
