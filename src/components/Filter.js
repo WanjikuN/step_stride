@@ -15,12 +15,12 @@ export default function Filter({handleName,handleGender, selectedGender, handleB
                 <select className="filter" id="sortBrand" onChange={handleBrand} value={selectedBrand}>
                     <option className="filter" value="All">All Brands</option>
                     <option className="filter" value="nike">Nike</option>
-                    <option className="filter"  value="hushpuppies">Hushpupies</option>
+                   <option className="filter"  value="hushpuppies">Hushpupies</option>
                     <option className="filter" value="adidas">Adidas</option>
-                    <option className="filter" value="vans">Vans</option>
-                    <option className="filter" value="reebok">Reebok</option>
+                   <option className="filter" value="vans">Vans</option>
+                     <option className="filter" value="reebok">Reebok</option>
                 </select>
-            </div>
-        </div>
-    )
+</div>
+</div>
+)
 }
