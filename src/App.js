@@ -10,11 +10,9 @@ function App() {
   }, []);
   return (
     <div id="container">
-    {/* <Products />
-    <LoginSignup /> */}
+    <Products />
+    <LoginSignup />
     <Routes>
-    <Route path="/login" element={<LoginSignup />}/>
-    <Route path="/" element={<Products/>}/>
     <Route path="/products/:id" element={<ProductDetail/>}/>
     </Routes>
     </div>
