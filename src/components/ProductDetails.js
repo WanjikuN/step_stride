@@ -16,7 +16,7 @@ export default function ProductDetail(){
         <div id="details">
             <div id="details_img">
             <img src={details.imageURL} alt={details.name}/>
-            <p>Price: ${details.price}</p>
+            <p>Price: <b>${details.price}</b></p>
             <button className="btn">Add to Cart</button>
             </div>
             <div id="product_info">
