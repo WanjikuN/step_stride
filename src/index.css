@@ -84,7 +84,7 @@ body{
 #details{
   /* border: 1px solid black; */
   display:flex;
-  height:85vh;
+  height:84vh;
   padding: 10px;
   border-radius: 10px;
   /* flex-wrap: wrap; */
@@ -97,7 +97,7 @@ body{
   flex-direction: column;
   align-items: center;
   width:60%;
-  height: 98%;
+  height: 95%;
   /* justify-content: center; */
 }
 #product_info{
