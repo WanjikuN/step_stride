@@ -13,6 +13,8 @@ const StyledFooter = styled.footer`
   color: white;
   text-align: center;
   padding: 20px;
+  margin:5px;
+  line-height: 10px;
 `;
 
 const SocialIcons = styled.div`
