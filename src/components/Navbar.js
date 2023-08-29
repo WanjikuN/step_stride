@@ -11,6 +11,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 30px 30px;
+  border-radius:4px;
 `;
 
 const Logo = styled.h1`
@@ -52,7 +53,7 @@ function Navbar() {
   return (
     <Nav>
       <Logo>
-        <span>Step-Stride</span>
+        <span>Step & Stride</span>
       </Logo>
       <LinksContainer>
         <List>
