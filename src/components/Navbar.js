@@ -11,6 +11,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 30px 30px;
+  border-radius:4px;
 `;
 
 const Logo = styled.h1`
@@ -48,11 +49,11 @@ const LinksContainer = styled.div`
   display: flex;
 `;
 
-function Navbar() {
+function Navbar({cartLength}) {
   return (
     <Nav>
       <Logo>
-        <span>Step-Stride</span>
+        <span>Step & Stride</span>
       </Logo>
       <LinksContainer>
         <List>
@@ -70,7 +71,7 @@ function Navbar() {
           </ListItem>
         </List>
       </LinksContainer>
-      <NavLink to="/cart"> <CartIcon icon={faShoppingCart} size="lg" /></NavLink>
+      <NavLink to="/cart" className="length" > <CartIcon id="ca"  icon={faShoppingCart} size="lg" /><p id="count">{cartLength}</p></NavLink>
     </Nav>
   );
 }
