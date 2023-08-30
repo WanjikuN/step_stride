@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './cart.css';
+import OrderTrack from './OrderTrack';
 
 function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
@@ -31,6 +32,7 @@ function ShoppingCart() {
         <div className="sidebar">
           <div className="head">
             <p>My Cart</p>
+            
           </div>
           <div id="cartItem">
             {cartItems.length === 0 ? (
@@ -49,6 +51,7 @@ function ShoppingCart() {
           </div>
         </div>
       </div>
+      {/* <OrderTrack /> */}
     </div>
   );
 }

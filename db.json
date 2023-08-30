@@ -226,7 +226,7 @@
       "description":"For men who appreciate classic formal footwear, the Bridgport Advice shoes by Hush Puppies are an excellent choice. These formal shoes feature a sleek design with a focus on comfort. The leather upper and lining provide a polished look, while the cushioned insole ensures all-day comfort. With a versatile black color, these shoes are suitable for various formal occasions, making them a must-have addition to your wardrobe."
    },
    
-    {
+   {
       "id": 16,
       "name": "Beck",
       "brand": "HUSHPUPPIES",
@@ -466,5 +466,29 @@
 
     }
   
+],
+"orders": [
+  {
+    "id": 1,
+    "product": {
+      "brand": "NIKE",
+      "is_in_inventory": true,
+      "items_left": 3,
+      "name": "Nike Air Zoom Pegasus 37",
+      "price": 120
+    },
+    "status": "On its way"
+  },
+  {
+    "id": 2,
+    "product": {
+      "brand": "NIKE",
+      "is_in_inventory": true,
+      "items_left": 3,
+      "name": "Nike Air Zoom Pegasus 37",
+      "price": 120
+    },
+    "status": "We've got it"
+  }
 ]
 }
