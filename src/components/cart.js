@@ -5,10 +5,14 @@ function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
-
-
   const addToCart = (item) => {
     const updatedCart = [...cartItems, item];
+    setCartItems(updatedCart);
+    calculateTotalPrice(updatedCart);
+  };
+
+  const removeFromCart = (index) => {
+    const updatedCart = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedCart);
     calculateTotalPrice(updatedCart);
   };
@@ -20,11 +24,10 @@ function ShoppingCart() {
 
   return (
     <div className="shopping-cart">
-      <div className="headercart">
+      <div className="">
         <p className="logo">CART SUMMARY</p>
-        <div className="cart">
+        <div>
           <i className="fas fa-cart-shopping"></i>
-          <p id="count">{cartItems.length}</p>
         </div>
       </div>
       <div className="container">
@@ -38,7 +41,11 @@ function ShoppingCart() {
             ) : (
               <ul>
                 {cartItems.map((item, index) => (
-                  <li key={index}>{item.name}</li>
+                  <li key={index}>
+                      {item.name} <button onClick={() => removeFromCart(index)}>Delete</button>
+                    {item.name}{' '}
+                    
+                  </li>
                 ))}
               </ul>
             )}
