@@ -2,53 +2,60 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const ContactContainer = styled.div`
-  padding: 20px;
+  padding: 40px; /* Increased padding for a taller page */
 
-  @media (max-width: 375px) { /* iPhone 12 width */
-    padding: 10px;
+  @media (max-width: 375px) {
+    padding: 20px; /* Adjusted padding for smaller screens */
   }
 `;
 
 const ContactForm = styled.form`
-  max-width: 400px;
+  max-width: 800px; /* Increased max-width for a larger form */
   margin: 0 auto;
+  font-size: 18px; /* Increased font size */
 
-  @media (max-width: 375px) { /* iPhone 12 width */
+  @media (max-width: 375px) {
     max-width: 100%;
   }
 `;
 
 const FormField = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Increased margin for more spacing */
 `;
 
-const Label = styled.label`
+const RequiredLabel = styled.label`
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px; /* Increased margin for more spacing */
+  font-weight: bold; /* Added bold font weight */
+  font-size: 20px; /* Increased font size */
+  color: green; 
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 15px; /* Increased padding */
+  border: 2px solid #ccc; /* Increased border width */
+  border-radius: 6px; /* Increased border radius */
+  font-size: 16px; /* Increased font size */
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 15px; /* Increased padding */
+  border: 2px solid #ccc; /* Increased border width */
+  border-radius: 6px; /* Increased border radius */
+  font-size: 16px; /* Increased font size */
   resize: vertical;
 `;
 
 const SubmitButton = styled.button`
   background-color: green;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 30px; /* Increased padding */
   border: none;
-  border-radius: 4px;
+  border-radius: 6px; /* Increased border radius */
   cursor: pointer;
+  font-size: 18px; /* Increased font size */
 
   &:hover {
     background-color: darkgreen;
@@ -56,9 +63,34 @@ const SubmitButton = styled.button`
 `;
 
 const Message = styled.p`
-  margin-top: 10px;
+  margin-top: 15px; /* Increased margin for more spacing */
   color: green;
   font-weight: bold;
+  font-size: 18px; /* Increased font size */
+`;
+
+const ContactMethods = styled.div`
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ContactMethod = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: #333;
+  }
 `;
 
 function Contact() {
@@ -69,18 +101,22 @@ function Contact() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     setMessageSent(true);
-    setName("");
-    setEmail("");
-    setMessage("");
+    setTimeout(() => {
+      setMessageSent(false);
+      setName("");
+      setEmail("");
+      setMessage("");
+    }, 3000); 
   };
 
   return (
     <ContactContainer>
-      <h2>Contact Us</h2>
+      
       <ContactForm onSubmit={handleSubmit}>
         <FormField>
-          <Label htmlFor="name">Name:</Label>
+          <RequiredLabel htmlFor="name">Name:</RequiredLabel>
           <Input
             type="text"
             id="name"
@@ -91,7 +127,7 @@ function Contact() {
           />
         </FormField>
         <FormField>
-          <Label htmlFor="email">Email:</Label>
+          <RequiredLabel htmlFor="email">Email:</RequiredLabel>
           <Input
             type="email"
             id="email"
@@ -102,7 +138,7 @@ function Contact() {
           />
         </FormField>
         <FormField>
-          <Label htmlFor="message">Message:</Label>
+          <RequiredLabel htmlFor="message">Message:</RequiredLabel>
           <TextArea
             id="message"
             name="message"
@@ -117,6 +153,21 @@ function Contact() {
       {messageSent && (
         <Message>Message received! We'll get back to you soon.</Message>
       )}
+
+      <ContactMethods>
+        <ContactMethod>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-5.514 0-10-4.486-10-10s4.486-10 10-10 10 4.486 10 10-4.486 10-10 10zm2-11.586l-1.768-1.768-2.829 2.828-2.828-2.828-1.768 1.768 2.828 2.829-2.828 2.828 1.768 1.768 2.828-2.828 2.829 2.828 1.768-1.768-2.828-2.829 2.828-2.828z"/>
+          </svg>
+          stepstride@gmail.com
+          </ContactMethod>
+        <ContactMethod>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 0c6.628 0 12 5.373 12 12s-5.372 12-12 12-12-5.373-12-12 5.372-12 12-12zm0 22c5.524 0 10-4.477 10-10s-4.476-10-10-10-10 4.477-10 10 4.476 10 10 10zm1-15h-2v6h2zm0 8h-2v2h2z"/>
+          </svg>
+          +254 (723) 456-789
+        </ContactMethod>
+      </ContactMethods>
     </ContactContainer>
   );
 }
