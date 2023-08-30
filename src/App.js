@@ -10,6 +10,7 @@ import {Routes, Route} from "react-router-dom";
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ShoppingCart from './components/cart';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/" element={<Products/>}/>
           <Route path="/login" element={<LoginSignup/>}/>
           <Route path="/products/:id" element={<ProductDetail/>}/>
+          <Route path="/cart" element={<ShoppingCart/>}/>
         </Routes>
         <Footer/>
         

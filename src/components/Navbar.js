@@ -70,7 +70,7 @@ function Navbar() {
           </ListItem>
         </List>
       </LinksContainer>
-      <CartIcon icon={faShoppingCart} size="lg" />
+      <NavLink to="/cart"> <CartIcon icon={faShoppingCart} size="lg" /></NavLink>
     </Nav>
   );
 }
