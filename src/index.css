@@ -121,6 +121,7 @@ body{
   flex-direction: column;
   align-items: center;
   line-height: 25px;
+  
 }
 .btn{
   background-color: green;
@@ -166,4 +167,33 @@ body{
   background-color: rgba(0, 0, 0, 0.363);
   border-radius: 50% ;
   padding: 4px;
+}
+#back{
+  border-bottom: 4px solid black;
+  cursor: pointer;
+}
+/* order tracking */
+.rope {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  width: 10px; 
+  height: 400px; 
+  background-color: #ccc; 
+  border-radius: 25px; 
+  margin: 0 auto;
+}
+.order_text{
+  margin: 20px;
+  padding-left: 15px; 
+  width: 150px;
+  height: 40px;
+  font-weight: 200;
+  /* font-size: 10px; */
+}
+#track{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 }

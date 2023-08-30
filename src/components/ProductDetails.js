@@ -1,14 +1,18 @@
 import { useState,useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams,useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "./CartContext";
 export default function ProductDetail(){
+    const navigate = useNavigate();
     const[details, setDetails] = useState(null);
     const [size,setSize] =useState("");
     const [cart, setCart] = useState([]);
     const params = useParams()
     const { addToCart } = useCart();
+    const handleGoBack = () => {
+        navigate(-1);
+      };
     // console.log(params)
     useEffect(()=>{
         fetch(`http://localhost:3030/sneakers/${params.id}`)
@@ -32,6 +36,7 @@ export default function ProductDetail(){
     return(
         <div id="details">
             <div id="details_img">
+            <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute"}}>←<span style={{fontSize:"30px"}}>Products</span></p>
             <img src={details.imageURL} alt={details.name}/>
             <div id="cart-bottom">
                <div>
