@@ -15,6 +15,7 @@ const StyledFooter = styled.footer`
   padding: 20px;
   margin:5px;
   line-height: 10px;
+  border-radius:4px;
 `;
 
 const SocialIcons = styled.div`
@@ -81,7 +82,7 @@ function Footer() {
           <FontAwesomeIcon icon={faWhatsapp} />
         </SocialLink>
       </SocialIcons>
-      <AllRights>&copy; {new Date().getFullYear()} Step-Stride. All rights reserved.</AllRights>
+      <AllRights>&copy; {new Date().getFullYear()} Step & Stride. All rights reserved.</AllRights>
     </StyledFooter>
   );
 }
