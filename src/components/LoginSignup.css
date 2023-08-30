@@ -1,10 +1,12 @@
-.container{
+.Container{
     display: flex;
     flex-direction: column;
-    margin: auto;
-    margin-top: 200px;
+    /* margin: 10px; */
+    align-items: center;
+    /* margin-top: 200px; */
     background: #fff;
     padding-bottom: 30px;
+    
 }
 
 .text{
@@ -13,7 +15,7 @@
 }
 
 .underline {
-    width: 110px;
+    width: 100%;
     height: 7px;
     border-radius: 10px;
     background-color: black;
@@ -32,14 +34,8 @@
     margin: 2px;
     width: 98%;
     height: 90%;
-    background-color: grey;
+    background-color: black;
     border-radius: 8px;
-}
-
-.forgot-password{
-    text-align: center;
-    margin-top: 30px;
-    font-size: 20px;
 }
 
 .Submit-container{
@@ -57,11 +53,16 @@
     height: 60px;
     color: #fff;
     background-color: green;
-    border-radius: 50px;
+    border-radius: 20px;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
 }
+
+.gray {
+    background: gray;
+}
+
 input{
     width:98%;
     height: 90%;

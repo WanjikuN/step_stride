@@ -37,25 +37,21 @@ const  LoginSignup = () => {
             {action==="Login"?<div></div>: <div className="input">
           <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
         </div>}
-         
         </div>
-
           <div className="inputs">
           <div className="input">
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
         </div>
         </div>
-
           <div className="inputs">
           <div className="input">
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </div>
         </div>
-          {action==="Sign Up"? null : (<div className="forgot-password">Forgotten password <span>Click Here!</span> </div>)}
           <div className="Submit-container">
           <div className={action==="Login"?"Submit grey":"submit"}onClick={()=>{setAction("Sign Up"); addUser();}}>Sign Up</div>
           <div className={action==="Sign Up"?"Submit grey":"submit"}onClick={()=>{setAction("Login")}}>Login</div>
-       </div>
+       </div>  
     </div>
   );
 };
