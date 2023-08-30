@@ -49,7 +49,7 @@ const LinksContainer = styled.div`
   display: flex;
 `;
 
-function Navbar() {
+function Navbar({cartLength}) {
   return (
     <Nav>
       <Logo>
@@ -71,7 +71,7 @@ function Navbar() {
           </ListItem>
         </List>
       </LinksContainer>
-      <NavLink to="/cart"> <CartIcon icon={faShoppingCart} size="lg" /></NavLink>
+      <NavLink to="/cart" className="length" > <CartIcon id="ca"  icon={faShoppingCart} size="lg" /><p id="count">{cartLength}</p></NavLink>
     </Nav>
   );
 }
