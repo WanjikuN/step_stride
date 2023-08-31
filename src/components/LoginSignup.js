@@ -9,9 +9,9 @@ const  LoginSignup = () => {
   const [password, setPassword] = useState('')
 
 
-  const addUser = async () => {
+  const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:3000/users', {
+      const response = await fetch('http://localhost:3030/users', {
         method : 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,11 +19,27 @@ const  LoginSignup = () => {
      body: JSON.stringify({ name, email, password})
       });
 
-
         const data = await response.json();
         console.log('User added:', data);
+      if (action === 'Login') {
+        const response = await fetch('http://localhost:3030/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          console.log('Login successful');
+          
+        } else {
+          console.log('Login failed');
+        }
+      }
     } catch (err) {
-      console.error('Error adding user:', err);
+      console.error('Error:', err);
     }
   };
 
@@ -37,20 +53,22 @@ const  LoginSignup = () => {
             {action==="Login"?<div></div>: <div className="input">
           <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
         </div>}
+
         </div>
           <div className="inputs">
           <div className="input">
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
         </div>
         </div>
+
           <div className="inputs">
           <div className="input">
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </div>
         </div>
           <div className="Submit-container">
-          <div className={action==="Login"?"Submit grey":"submit"}onClick={()=>{setAction("Sign Up"); addUser();}}>Sign Up</div>
-          <div className={action==="Sign Up"?"Submit grey":"submit"}onClick={()=>{setAction("Login")}}>Login</div>
+          <div className={action==="Sign Up" ? "Submit" : "submit-active"}onClick={()=>{if(action === "Sign Up") handleSubmit();}}>Sign Up</div>
+          <div className={action==="Login" ? "Submit" : "submit-inactive"}onClick={()=>{if(action === "Login") {handleSubmit();} setAction('Login') }} >Login</div>
        </div>  
     </div>
   );
