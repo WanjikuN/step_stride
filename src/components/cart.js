@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom"
 import './cart.css';
 import CartItem from './CartItem';
-function ShoppingCart({ cart }) {
-  const [cartItems, setCartItems] = useState([]);
+function ShoppingCart({ cart, removeFromCart }) {
+      const calculateTotalPrice = () => {
+        return cart.reduce((total, item) => total + item.price, 0);
+    };
+
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -69,49 +72,54 @@ function ShoppingCart({ cart }) {
   // };
 
   return (
-    
+
     <div className="shopping-cart">
       <div className="">
-      <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
+      <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute", marginLeft:"40px",marginTop:"40px",color:"white"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
         <p className="logo">CART SUMMARY</p>
         <div>
           <i className="fas fa-cart-shopping"></i>
         </div>
       </div>
+      
       <div className="container">
-        <div className="sidebar">
-          <div className="head">
+      <div className="head">
             <p>My Cart</p>
             
           </div>
+          <div className="foot">
+            
+            <h2 id="total">Total: $ {calculateTotalPrice().toFixed(2)}</h2>
+            {
+            <NavLink to="/checkout" style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
+            }
+            
+          </div>
+        <div className="sidebar">
+        
           <div id="cartItem">
             {cart.length === 0 ? (
               <p>Your cart is empty</p>
             ) : (
-              <ul id="list">
+              <>
                 {cart.map((item, index) => (
-                <CartItem item={item}/>
+                <CartItem key={index} item={item} handleDelete={removeFromCart}/>
                 ))}
-              </ul>
+              </>
             )}
           </div>
-          <div className="foot">
-            <h3>Total</h3>
-            <h2 id="total">$ {totalPrice.toFixed(2)}</h2>
-          </div>
+          
          
         </div>
       </div>
       {/* <OrderTrack /> */}
       <div>
-      {
-            <NavLink to="/checkout" style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
+     
+</div>
 
-      }
-    </div>
-         
-    </div>
-    
+     
+</div>
+
   
   );
                 }
