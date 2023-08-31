@@ -6,8 +6,6 @@
     /* margin-top: 200px; */
     background: #fff;
     padding-bottom: 30px;
-    box-decoration-break: clone;
-    
 }
 
 .text{
@@ -82,7 +80,7 @@
     width: 240px;
     height: 60px;
     color: #fff;
-    background-color: grey;
+    background-color: green;
     border-radius: 20px;
     font-size: 20px;
     font-weight: 700;
