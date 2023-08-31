@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom"
 import './cart.css';
 import CartItem from './CartItem';
+
 function ShoppingCart({ cart, removeFromCart }) {
       const calculateTotalPrice = () => {
         return cart.reduce((total, item) => total + item.price, 0);
     };
+
 
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
@@ -75,7 +77,9 @@ function ShoppingCart({ cart, removeFromCart }) {
 
     <div className="shopping-cart">
       <div className="">
+
       <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute", marginLeft:"40px",marginTop:"40px",color:"white"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
+
         <p className="logo">CART SUMMARY</p>
         <div>
           <i className="fas fa-cart-shopping"></i>
@@ -101,7 +105,11 @@ function ShoppingCart({ cart, removeFromCart }) {
             {cart.length === 0 ? (
               <p>Your cart is empty</p>
             ) : (
+
               <>
+
+             
+
                 {cart.map((item, index) => (
                 <CartItem key={index} item={item} handleDelete={removeFromCart}/>
                 ))}

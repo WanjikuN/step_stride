@@ -1,3 +1,4 @@
+
 import React from 'react';
 export default function CartItem ({item, handleDelete}){
     return(
@@ -22,4 +23,6 @@ export default function CartItem ({item, handleDelete}){
             
             </div>
     )
+
+
 }
