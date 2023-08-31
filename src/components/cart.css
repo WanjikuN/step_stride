@@ -11,7 +11,7 @@
     justify-content: center;
     flex-direction: column; */
 /* } */
-.header{
+/* .header{
     height: 80px;
     width: 70%;
     background-color: red;
@@ -21,11 +21,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-}
-.shopping-cart{
-    display: flex;
-    justify-content: center;
-    
 }
 .header .logo{
     font-size: 30px;
@@ -63,8 +58,8 @@
     margin-bottom: 30px;
     background-color: white;
     margin-top:20px; /* Adjust the value as needed */
-  margin-left:20px;
-}
+  /* margin-left:20px; */
+/* } */
 /* #root{
     width: 60%;
     display: grid;

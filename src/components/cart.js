@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom"
 import './cart.css';
 import CartItem from './CartItem';
 function ShoppingCart({ cart }) {
@@ -65,6 +66,7 @@ function ShoppingCart({ cart }) {
   // };
 
   return (
+    
     <div className="shopping-cart">
       <div className="">
         <p className="logo">CART SUMMARY</p>
@@ -76,6 +78,7 @@ function ShoppingCart({ cart }) {
         <div className="sidebar">
           <div className="head">
             <p>My Cart</p>
+            
           </div>
           <div id="cartItem">
             {cart.length === 0 ? (
@@ -95,7 +98,17 @@ function ShoppingCart({ cart }) {
          
         </div>
       </div>
+      {/* <OrderTrack /> */}
+      <div>
+      {
+            <NavLink to="/checkout" style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
+
+      }
     </div>
+         
+    </div>
+    
+  
   );
                 }
 
