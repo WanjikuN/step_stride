@@ -14,7 +14,7 @@ export function CartProvider({ children }) {
     if (!cart.find((cartItem) => cartItem.id === item.id)) {
         setCart((prevCart) => [...prevCart, item]);
       }  };
-console.log(cart.length);
+console.log(cart);
 
   return (
     <CartContext.Provider value={{ cart, addToCart }}>
