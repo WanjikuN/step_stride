@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     document.title = "Step & Stride"; // document title 
   }, []);
-  // console.log(cart.length);
+  console.log(cart);
   return (
     
       <div className="App">
