@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import './cart.css';
 import OrderTrack from './OrderTrack';
-
+import { NavLink } from 'react-router-dom';
 function ShoppingCart() {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
@@ -24,6 +24,7 @@ function ShoppingCart() {
   };
 
   return (
+    
     <div className="shopping-cart">
       <div className="headercart">
       <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
@@ -59,7 +60,16 @@ function ShoppingCart() {
         </div>
       </div>
       {/* <OrderTrack /> */}
+      <div>
+      {
+            <NavLink to="/checkout" style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
+
+      }
     </div>
+         
+    </div>
+    
+  
   );
 }
 
