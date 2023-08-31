@@ -1,39 +1,77 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import './cart.css';
-import OrderTrack from './OrderTrack';
-import { NavLink } from 'react-router-dom';
-function ShoppingCart() {
-  const navigate = useNavigate();
+import CartItem from './CartItem';
+function ShoppingCart({ cart }) {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const handleGoBack = () => {
-    navigate(-1);
-  };
 
+  // const addToCart = (item) => {
+  //   const updatedCart = [...cartItems, item];
+  //   setCartItems(updatedCart);
+  //   calculateTotalPrice(updatedCart);
+  // }
+  // removeFromCart(state, action) 
+  //   state.cartItems.map((cartItem) => {
+  //     if (cartItem.id === action.payload.id) {
+  //       const nextCartItems = state.cartItems.filter(
+  //         (item) => item.id !== cartItem.id
+  //       );
 
-  const addToCart = (item) => {
-    const updatedCart = [...cartItems, item];
-    setCartItems(updatedCart);
-    calculateTotalPrice(updatedCart);
-  };
+  //       state.cartItems = nextCartItems;
 
-  const calculateTotalPrice = (cart) => {
-    const total = cart.reduce((acc, item) => acc + item.price, 0);
-    setTotalPrice(total);
-  };
+  //       toast.error("Product removed from cart", {
+  //         position: "bottom-left",
+  //       });
+  //     }
+  //     localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+  //     return state;
+  //   })
+  // }
+  // getTotals(state, action){
+  //   let { total, quantity } = state.cartItems.reduce(
+  //     (cartTotal, cartItem) => {
+  //       const { price, cartQuantity } = cartItem;
+  //       const itemTotal = price * cartQuantity;
+
+  //       cartTotal.total += itemTotal;
+  //       cartTotal.quantity += cartQuantity;
+
+  //       return cartTotal;
+  //     },
+  //     {
+  //       total: 0,
+  //       quantity: 0,
+  //     }
+  //   );
+  //   total = parseFloat(total.toFixed(2));
+  //   state.cartTotalQuantity = quantity;
+  //   state.cartTotalAmount = total;
+
+  // // function clearCart(state, action) {
+  // //   state.cartItems = [];
+  // //   localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+  // //   toast.error("Cart cleared", { position: "bottom-left" });
+ 
+  // // };
+
+  // const clearCart = () => {
+  //   setCartItems([]);
+  //   calculateTotalPrice([]);
+  // };
+
+  // const calculateTotalPrice = (cart) => {
+  //   const total = cart.reduce((acc, item) => acc + item.price, 0);
+  //   setTotalPrice(total);
+  // };
 
   return (
     
     <div className="shopping-cart">
-      <div className="headercart">
-      <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
-
+      <div className="">
         <p className="logo">CART SUMMARY</p>
-
-        <div className="cart">
+        <div>
           <i className="fas fa-cart-shopping"></i>
-          <p id="count">{cartItems.length}</p>
         </div>
       </div>
       <div className="container">
@@ -43,12 +81,12 @@ function ShoppingCart() {
             
           </div>
           <div id="cartItem">
-            {cartItems.length === 0 ? (
+            {cart.length === 0 ? (
               <p>Your cart is empty</p>
             ) : (
               <ul>
-                {cartItems.map((item, index) => (
-                  <li key={index}>{item.name}</li>
+                {cart.map((item, index) => (
+                <CartItem item={item}/>
                 ))}
               </ul>
             )}
@@ -57,6 +95,7 @@ function ShoppingCart() {
             <h3>Total</h3>
             <h2 id="total">$ {totalPrice.toFixed(2)}</h2>
           </div>
+         
         </div>
       </div>
       {/* <OrderTrack /> */}
@@ -71,6 +110,6 @@ function ShoppingCart() {
     
   
   );
-}
+                }
 
 export default ShoppingCart;

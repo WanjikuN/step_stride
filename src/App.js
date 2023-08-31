@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     document.title = 'Step & Stride'; 
   }, []);
-
+  console.log(cart);
   return (
     <div className="App">
       <Navbar cartLength={cart.length} />
