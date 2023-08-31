@@ -4,20 +4,21 @@ import './App.css';
 import LoginSignup from './components/LoginSignup';
 import ProductDetail from './components/ProductDetails';
 import Products from './components/Products';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom'; 
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Contact from './components/Contact'; // Resolved conflict here
-import ShoppingCart from './components/cart'; // Resolved conflict here
+import Contact from './components/Contact';
+import ShoppingCart from './components/cart';
+import Checkout from './components/Checkout'; 
 import { useCart } from './components/CartContext';
 
 function App() {
   const { cart, addToCart } = useCart();
   useEffect(() => {
-    document.title = 'Step & Stride'; // document title
+    document.title = 'Step & Stride'; 
   }, []);
-  // console.log(cart.length);
+
   return (
     <div className="App">
       <Navbar cartLength={cart.length} />
@@ -27,6 +28,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<ShoppingCart cart={cart} />} />
+        <Route path="/checkout" element={<Checkout />} /> 
       </Routes>
       <Footer />
     </div>

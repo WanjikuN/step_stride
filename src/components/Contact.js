@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const ContactContainer = styled.div`
-  padding: 40px; /* Increased padding for a taller page */
+  padding: 40px; 
 
   @media (max-width: 375px) {
-    padding: 20px; /* Adjusted padding for smaller screens */
+    padding: 20px; 
   }
 `;
 
