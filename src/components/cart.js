@@ -72,27 +72,28 @@ function ShoppingCart({ cart }) {
 
     <div className="shopping-cart">
       <div className="">
-      <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
+      <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute", marginLeft:"40px",marginTop:"40px",color:"white"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
         <p className="logo">CART SUMMARY</p>
         <div>
           <i className="fas fa-cart-shopping"></i>
         </div>
       </div>
       <div className="container">
-        <div className="sidebar">
-          <div className="head">
+      <div className="head">
             <p>My Cart</p>
             
           </div>
+        <div className="sidebar">
+          
           <div id="cartItem">
             {cart.length === 0 ? (
               <p>Your cart is empty</p>
             ) : (
-              <ul>
+              <>
                 {cart.map((item, index) => (
-                <CartItem item={item}/>
+                <CartItem key={index} item={item}/>
                 ))}
-              </ul>
+              </>
             )}
           </div>
           <div className="foot">

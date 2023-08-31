@@ -11,10 +11,14 @@ export default function CartItem ({item}){
                     </p>
                 </div>
              </div>
-             <p>{item.price}</p>
+             <p><b>${item.price}</b></p>
         </div>
         <div id="cart2">
-            <button>remove</button>
-            </div></div>
+            <div></div>
+            <button id="btnCart">Remove</button>
+            
+            </div>
+            
+            </div>
     )
 }
