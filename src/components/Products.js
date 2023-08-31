@@ -9,6 +9,7 @@ export default function Products(){
  
     useEffect(()=>{
         fetch('http://localhost:3030/sneakers')
+        
         .then(res => res.json())
         .then(data => setSneakers(data))
     },[])
