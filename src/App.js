@@ -14,7 +14,7 @@ import Checkout from './components/Checkout';
 import { useCart } from './components/CartContext';
 
 function App() {
-  const { cart, addToCart } = useCart();
+  const { cart, addToCart, removeFromCart } = useCart();
   useEffect(() => {
     document.title = 'Step & Stride'; 
   }, []);
@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" element={<LoginSignup />} />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<ShoppingCart cart={cart} />} />
+        <Route path="/cart" element={<ShoppingCart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>} />
         <Route path="/checkout" element={<Checkout />} /> 
       </Routes>
       <Footer />
