@@ -1,4 +1,5 @@
-export default function CartItem ({item}){
+import React from 'react';
+export default function CartItem ({item, handleDelete}){
     return(
      <div id="cartContainer">
         <div id="cart1">
@@ -15,7 +16,7 @@ export default function CartItem ({item}){
         </div>
         <div id="cart2">
             <div></div>
-            <button id="btnCart">Remove</button>
+            <button onClick={() => handleDelete(item.id)}id="btnCart">🗑️Remove</button>
             
             </div>
             

@@ -61,9 +61,6 @@ function Navbar({ cartLength }) {
             <NavLink to="/">Home</NavLink>
           </ListItem>
           <ListItem>
-            <NavLink to="/about">About</NavLink>
-          </ListItem>
-          <ListItem>
             <NavLink to="/contact">Contact</NavLink>
           </ListItem>
           <ListItem>

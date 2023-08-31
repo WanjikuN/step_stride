@@ -22,6 +22,10 @@ color: white;
 display: flex;
 align-items: center;
 }
+.foot{
+    display: flex;
+    justify-content: space-around;
+}
 .button{
     background-color: green; 
     color: green;
