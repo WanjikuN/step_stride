@@ -1,4 +1,30 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "",
+      "email": "",
+      "password": ""
+    },
+    {
+      "name": "leon",
+      "email": "leon@gmail.com",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "name": "leon",
+      "email": "leon@gmail.com",
+      "password": "1234",
+      "id": 3
+    },
+    {
+      "email": "leon@gmail.com",
+      "password": "1234",
+      "id": 4
+    }
+  ],
+  
     "sneakers":[
      {
       "id": 1,
@@ -491,4 +517,5 @@
     "status": "We've got it"
   }
 ]
+
 }
