@@ -84,7 +84,7 @@ body{
 #details{
   /* border: 1px solid black; */
   display:flex;
-  height:85vh;
+  height:84vh;
   padding: 10px;
   border-radius: 10px;
   /* flex-wrap: wrap; */
@@ -95,9 +95,9 @@ body{
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   width:60%;
-  height: 98%;
+  height: 90%;
   /* justify-content: center; */
 }
 #product_info{
@@ -121,6 +121,7 @@ body{
   flex-direction: column;
   align-items: center;
   line-height: 25px;
+  
 }
 .btn{
   background-color: green;
@@ -131,4 +132,68 @@ body{
 }
 .btn:hover{
   font-size: 15px;
+}
+#cart-bottom{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+}
+.details_btn{
+  padding: 7px;
+  margin: 2px;
+  border: none;
+ 
+}
+.details_btn:hover{
+  cursor: pointer;
+  border: 2px solid black;
+
+}
+.details_btn:focus{
+  color: white;
+  background-color: black;
+}
+.length{
+  display: flex;
+  /* margin:10px; */
+  align-items: center;
+}
+#count{
+  display: flex;
+  /* font-weight: 1000; */
+  color: white;
+  /* border: 1px solid black; */
+  background-color: rgba(0, 0, 0, 0.363);
+  border-radius: 50% ;
+  padding: 4px;
+}
+#back{
+  border-bottom: 4px solid black;
+  cursor: pointer;
+}
+/* order tracking */
+.rope {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  width: 10px; 
+  height: 400px; 
+  background-color: #ccc; 
+  border-radius: 25px; 
+  margin: 0 auto;
+}
+.order_text{
+  margin: 20px;
+  padding-left: 15px; 
+  width: 150px;
+  height: 40px;
+  font-weight: 200;
+  /* font-size: 10px; */
+}
+#track{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 }

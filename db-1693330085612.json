@@ -1,54 +1,4 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "name": "leon",
-      "email": "leon@gmail.com",
-      "password": "1234",
-      "id": 2
-    },
-    {
-      "name": "leon",
-      "email": "leon@gmail.com",
-      "password": "1234",
-      "id": 3
-    },
-    {
-      "email": "leon@gmail.com",
-      "password": "1234",
-      "id": 4
-    },
-    {
-      "name": "joel",
-      "email": "joelmaina@gmail.com",
-      "password": "maina560",
-      "id": 5
-    },
-    {
-      "name": "joel",
-      "email": "joelmaina@gmail.com",
-      "password": "maina560",
-      "id": 6
-    },
-    {
-      "name": "joel",
-      "email": "joelmaina@gmail.com",
-      "password": "maina560",
-      "id": 7
-    },
-    {
-      "name": "joel",
-      "email": "joelmaina@gmail.com",
-      "password": "maina560",
-      "id": 8
-
-    }
-  ],
   "sneakers": [
     {
       "id": 1,
@@ -496,30 +446,6 @@
       "slug": "michael-feburary-sk8-hi",
       "featured": 0,
       "description": "The Michael Feburary SK8-Hi sneakers from Vans are the embodiment of classic style and modern versatility. These men's casual shoes feature the iconic high-top design that's been loved for generations, combined with contemporary materials and comfort. The sturdy construction and padded collars provide all-day support, making them perfect for various occasions. With only 3 items left, elevate your footwear collection with these timeless SK8-Hi sneakers."
-    }
-  ],
-  "orders": [
-    {
-      "id": 1,
-      "product": {
-        "brand": "NIKE",
-        "is_in_inventory": true,
-        "items_left": 3,
-        "name": "Nike Air Zoom Pegasus 37",
-        "price": 120
-      },
-      "status": "On its way"
-    },
-    {
-      "id": 2,
-      "product": {
-        "brand": "NIKE",
-        "is_in_inventory": true,
-        "items_left": 3,
-        "name": "Nike Air Zoom Pegasus 37",
-        "price": 120
-      },
-      "status": "We've got it"
     }
   ]
 }

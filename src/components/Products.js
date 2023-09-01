@@ -6,10 +6,10 @@ export default function Products(){
     const[sname, setName] = useState("");
     const[selectedGender,setSelectedGender] = useState("All");
     const[selectedBrand, setSelectedBrand] = useState("All");
-    // console.log(sneakers)
-    // fetch  from the json db and assign them to sneakers
+ 
     useEffect(()=>{
         fetch('http://localhost:3030/sneakers')
+        
         .then(res => res.json())
         .then(data => setSneakers(data))
     },[])
@@ -17,18 +17,18 @@ export default function Products(){
         e.preventDefault();
         setName(e.target.value);
     }
-    // filter sneakers 
+  
     const sneakersDisplay = sneakers.filter(sneaker=>{
         if(sneakers === "") return true;
         return sneaker.name.toLowerCase().includes(sname.toLowerCase())
     })
-    // sort using gender
+   
     function handleGender(e){
         e.preventDefault();
         setSelectedGender(e.target.value);
     }
     const sortedGender = selectedGender ==="All"? sneakersDisplay: sneakersDisplay.filter(s=>s.gender.toLowerCase() === selectedGender.toLowerCase());
-    // sort using brands
+  
     function handleBrand(e){
         e.preventDefault();
         setSelectedBrand(e.target.value);
@@ -39,7 +39,7 @@ export default function Products(){
         <div id ="products-cont">
         <Filter handleName={handleName} handleGender={handleGender} handleBrand={handleBrand} selectedBrand={selectedBrand}/>
         <div id="products">
-            {/* Map through sneakers and display each  */}
+            {}
         {sortedBrand.map(sneaker=>{
             return <Product key={sneaker.id} id={sneaker.id} name={sneaker.name} brand={sneaker.brand} gender={sneaker.gender} category={sneaker.category} price={sneaker.price} stock={sneaker.items_left} url={sneaker.imageURL}/>
         })}
