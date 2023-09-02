@@ -46,7 +46,6 @@ align-items: center;
     border-radius: 4px;
   }
 .shopping-cart{
-
     width: 70%;
     padding-left:30px;
     margin-left: 10%;
@@ -70,28 +69,23 @@ align-items: center;
 
 }
 
-
 #cartimage{
     display: flex;
     justify-content: flex-end;
 }
-
 #cartimage img{
     width: 100px;
 
 }
-
 #cart img{
     display: flex;
     flex-direction: column;
 }
-
 #list{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
 
 #cartItem{
     /* border: 1px solid black; */
@@ -116,4 +110,3 @@ align-items: center;
     border-radius: 4px;
     padding: 5px;
 }
-

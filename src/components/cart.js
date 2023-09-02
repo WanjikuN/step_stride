@@ -2,18 +2,40 @@ import React, { useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom"
 import './cart.css';
 import CartItem from './CartItem';
-
-function ShoppingCart({ cart, removeFromCart }) {
+function ShoppingCart({ cart, removeFromCart,setCart }) {
       const calculateTotalPrice = () => {
         return cart.reduce((total, item) => total + item.price, 0);
     };
-
 
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const handleGoBack = () => {
       navigate(-1);
     };
+    const handleIncrease = (itemId) => {
+      const updatedCart = cart.map((item) => {
+        if (item.id === itemId && item.quantity > 1) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      setCart(updatedCart);
+    };
+
+    const handleDecrease = (itemId) => {
+      const updatedCart = cart.map((item) => {
+        if (item.id === itemId && item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      });
+      setCart(updatedCart);
+
+    };
+
+
+  
+  
   // const addToCart = (item) => {
   //   const updatedCart = [...cartItems, item];
   //   setCartItems(updatedCart);
@@ -88,6 +110,7 @@ function ShoppingCart({ cart, removeFromCart }) {
       
       <div className="container">
       <div className="head">
+     
             <p>My Cart</p>
             
           </div>
@@ -103,33 +126,30 @@ function ShoppingCart({ cart, removeFromCart }) {
         
           <div id="cartItem">
             {cart.length === 0 ? (
-              <p>Your cart is empty</p>
+              <p>Your cart is empty</p> 
+              
+
             ) : (
 
               <>
-
-             
-
-                {cart.map((item, index) => (
-                <CartItem key={index} item={item} handleDelete={removeFromCart}/>
+                  {cart.map((item, index) => (
+                  <CartItem
+                    key={index}
+                    item={item}
+                    handleDelete={removeFromCart}
+                    handleIncrease={handleIncrease}
+                    handleDecrease={handleDecrease} 
+                  />
                 ))}
               </>
             )}
           </div>
-          
-         
         </div>
       </div>
-      {/* <OrderTrack /> */}
-      <div>
-     
-</div>
-
-     
-</div>
-
-  
+    </div>
   );
-                }
+}
 
 export default ShoppingCart;
+
+          

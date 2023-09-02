@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import {useNavigate} from "react-router-dom";
 
 const ContactContainer = styled.div`
   padding: 40px; 
@@ -98,7 +99,10 @@ function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+      navigate(-1);
+    };
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -112,6 +116,8 @@ function Contact() {
   };
 
   return (
+    <>
+    <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute", marginLeft:"40px",marginTop:"3px",color:"black"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
     <ContactContainer>
       
       <ContactForm onSubmit={handleSubmit}>
@@ -169,6 +175,7 @@ function Contact() {
         </ContactMethod>
       </ContactMethods>
     </ContactContainer>
+    </>
   );
 }
 

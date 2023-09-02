@@ -19,7 +19,7 @@ const removeFromCart = (itemId) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== itemId));
 };
   return (
-    <CartContext.Provider value={{ cart, addToCart ,removeFromCart}}>
+    <CartContext.Provider value={{ cart,setCart, addToCart ,removeFromCart}}>
       {children}
     </CartContext.Provider>
   );
