@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export default function CartItem({ item, handleDelete, handleIncrease, handleDecrease }) {
@@ -15,9 +16,9 @@ export default function CartItem({ item, handleDelete, handleIncrease, handleDec
       </div>
       <div id="cart2">
         <div>
-          <button onClick={() => handleDecrease(item.id)} id="btnCart">Decrease</button>
+          <button onClick={() => handleDecrease(item.id)} id="btnCart">-</button>
           <span>{item.quantity}</span>
-          <button onClick={() => handleIncrease(item.id)} id="btnCart">Increase</button>
+          <button onClick={() => handleIncrease(item.id)} id="btnCart">+</button>
         </div>
         <button onClick={() => handleDelete(item.id)} id="btnCart">🗑️Remove</button>
       </div>
