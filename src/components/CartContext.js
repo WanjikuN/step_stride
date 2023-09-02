@@ -18,8 +18,11 @@ console.log(cart);
 const removeFromCart = (itemId) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== itemId));
 };
+const emptyCart =()=>{
+  setCart([]);
+}
   return (
-    <CartContext.Provider value={{ cart, addToCart ,removeFromCart}}>
+    <CartContext.Provider value={{ cart, addToCart ,removeFromCart,emptyCart}}>
       {children}
     </CartContext.Provider>
   );
