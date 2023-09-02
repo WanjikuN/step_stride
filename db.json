@@ -24,7 +24,6 @@
       "id": 4
     },
     {
-<<<<<<< HEAD
       "name": "joel",
       "email": "joelmaina@gmail.com",
       "password": "maina560",
@@ -46,8 +45,7 @@
       "name": "joel",
       "email": "joelmaina@gmail.com",
       "password": "maina560",
-      "id": 8
-=======
+      "id": 8,
       "name": "pat",
       "email": "cikunjoroge4@gmail.com",
       "password": "123",
@@ -93,7 +91,7 @@
       "email": "cikunjoroge4@gmail.com",
       "password": "123",
       "id": 12
->>>>>>> 21604f54746fb1b8544d84d3ffecd9c80bec6dc4
+
     }
   ],
   "sneakers": [
