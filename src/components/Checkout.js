@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate} from "react-router-dom"
+import CartItem from './CartItem';
 
 const CheckoutContainer = styled.div`
   padding: 40px;
@@ -46,7 +48,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-function Checkout() {
+function Checkout({emptyCart}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -75,8 +77,16 @@ function Checkout() {
       console.error("An error occurred", error);
     }
   };
-
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+      navigate(-1);
+    };
+   const handleClick=()=>{
+     emptyCart();
+   } 
   return (
+    <>
+     <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute", marginLeft:"40px",marginTop:"40px",color:"black"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
     <CheckoutContainer>
       
       <CheckoutForm onSubmit={handleSubmit}>
@@ -150,9 +160,10 @@ function Checkout() {
           </FormField>
         )}
         
-        <SubmitButton type="submit">Place Order</SubmitButton>
+        <SubmitButton type="submit" onClick={handleClick}>Place Order</SubmitButton>
       </CheckoutForm>
     </CheckoutContainer>
+    </>
   );
 }
 

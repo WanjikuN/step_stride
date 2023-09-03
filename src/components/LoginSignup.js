@@ -11,7 +11,7 @@ const  LoginSignup = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:3030/users', {
+      const response = await fetch('https://json-server-ogfs.onrender.com/users', {
         method : 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ const  LoginSignup = () => {
         const data = await response.json();
         console.log('User added:', data);
       if (action === 'Login') {
-        const response = await fetch('http://localhost:3030/users', {
+        const response = await fetch('https://json-server-ogfs.onrender.com/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

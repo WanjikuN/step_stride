@@ -19,11 +19,25 @@ Step and Stride is a premier online shoe store built using React, offering a wid
 
 - **Frontend**: Built with React, ensuring a smooth and dynamic user experience.
 - **Styling**: CSS-in-JS for easy and maintainable styling solutions.
-- **Payment Processing**: Integrated secure payment processing for a seamless checkout experience.
-- **Order Tracking**: Real-time order tracking functionality to keep customers informed.
+    ## In Progress
+    - **Payment Processing**: Integrated secure payment processing for a seamless checkout experience.
+    - **Order Tracking**: Real-time order tracking functionality to keep customers informed.
+## Getting started
+ - Clone this repository to your local machine.
+ - Run `npm install` to install the necessary dependencies.
+ - Start the development server with `npm start`.
+ - Run json server with `npm run start-server`
 
-## Contact Us
+## API Endpoints
+ - `POST /users` :Create a new user
+ - `GET /users/:id` :Retrieve a specific user
+ - `GET /sneakers/:id` :Retrieve a specific item
+ - `POST /orders` :Create a new order
+ - `GET /orders/:id` :Retrieve a specific order
 
-If you have any questions or need assistance, feel free to reach out to our customer support team at support@stepandstride.com.
+## Contributing
+ We welcome contributions from the community to enhance the Step and Stride Shoe Store. If you'd like to contribute, please fork this repository, make your changes, and submit a pull request.
+## License
+ This project is licensed under the MIT License - see the [LICENSE]('./LICENSE') file for details.
 
-Happy Shoe Shopping at Step and Stride!
+    Happy Stepping!

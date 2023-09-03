@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-
+import {useNavigate} from "react-router-dom";
 export default function OrderTrack() {
     const [orderId, setOrderId] = useState("");
     const [order, setOrder] = useState({});
-
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+      navigate(-1);
+    };
     function searchOrder() {
-        fetch(`http://localhost:3030/orders/${orderId}`)
+        fetch(`https://json-server-ogfs.onrender.com/orders/${orderId}`)
             .then(resp => resp.json())
             .then(data => setOrder(data));
     }
@@ -13,7 +16,10 @@ export default function OrderTrack() {
     const status = ["Follow your Order", "We've got it", "On its way", "With your courier", "Delivered"];
 
     return (
+        <>
+              <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute", marginLeft:"40px",marginTop:"40px",color:"black"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
         <div id="track">
+            
             <h4>Search Order</h4>
             <input className="filter"
                 type="text"
@@ -43,5 +49,7 @@ export default function OrderTrack() {
                 
             </div>
         </div>
+        
+        </>
     );
 }
