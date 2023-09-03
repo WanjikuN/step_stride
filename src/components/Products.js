@@ -34,7 +34,9 @@ export default function Products(){
         setSelectedBrand(e.target.value);
     }
     const sortedBrand = selectedBrand ==="All"? sortedGender: sortedGender.filter(s=>s.brand.toLowerCase() === selectedBrand.toLowerCase());
-    
+    if (!sneakers.length) {
+        return <h2>Loading...</h2>;
+    }
     return (
         <div id ="products-cont">
         <Filter handleName={handleName} handleGender={handleGender} handleBrand={handleBrand} selectedBrand={selectedBrand}/>
