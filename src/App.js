@@ -12,6 +12,7 @@ import Contact from './components/Contact';
 import ShoppingCart from './components/cart';
 import Checkout from './components/Checkout'; 
 import { useCart } from './components/CartContext';
+import OrderTrack from './components/OrderTrack';
 
 function App() {
   const { cart,setCart, addToCart, removeFromCart } = useCart();
@@ -29,6 +30,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<ShoppingCart setCart={setCart} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>} />
         <Route path="/checkout" element={<Checkout />} /> 
+        <Route path="/orders" element={<OrderTrack />} />
       </Routes>
       <Footer />
     </div>
