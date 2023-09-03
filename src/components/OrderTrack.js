@@ -5,7 +5,7 @@ export default function OrderTrack() {
     const [order, setOrder] = useState({});
 
     function searchOrder() {
-        fetch(`http://localhost:3030/orders/${orderId}`)
+        fetch(`https://json-server-ogfs.onrender.com/orders/${orderId}`)
             .then(resp => resp.json())
             .then(data => setOrder(data));
     }
