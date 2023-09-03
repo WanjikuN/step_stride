@@ -107,9 +107,6 @@ function ShoppingCart({ cart, removeFromCart }) {
             ) : (
 
               <>
-
-             
-
                 {cart.map((item, index) => (
                 <CartItem key={index} item={item} handleDelete={removeFromCart}/>
                 ))}
