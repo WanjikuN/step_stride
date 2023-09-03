@@ -95,7 +95,7 @@ function ShoppingCart({ cart, removeFromCart }) {
             
             <h2 id="total">Total: $ {calculateTotalPrice().toFixed(2)}</h2>
             {
-            <NavLink to="/checkout" style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
+           cart.length === 0 ? null: <NavLink to="/checkout" style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
             }
             
           </div>
@@ -107,9 +107,6 @@ function ShoppingCart({ cart, removeFromCart }) {
             ) : (
 
               <>
-
-             
-
                 {cart.map((item, index) => (
                 <CartItem key={index} item={item} handleDelete={removeFromCart}/>
                 ))}

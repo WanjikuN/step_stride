@@ -8,7 +8,7 @@ export default function Products(){
     const[selectedBrand, setSelectedBrand] = useState("All");
  
     useEffect(()=>{
-        fetch('http://localhost:3030/sneakers')
+        fetch('https://json-server-ogfs.onrender.com/sneakers')
         
         .then(res => res.json())
         .then(data => setSneakers(data))
@@ -34,7 +34,7 @@ export default function Products(){
         setSelectedBrand(e.target.value);
     }
     const sortedBrand = selectedBrand ==="All"? sortedGender: sortedGender.filter(s=>s.brand.toLowerCase() === selectedBrand.toLowerCase());
-
+    
     return (
         <div id ="products-cont">
         <Filter handleName={handleName} handleGender={handleGender} handleBrand={handleBrand} selectedBrand={selectedBrand}/>
