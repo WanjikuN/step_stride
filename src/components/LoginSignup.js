@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './LoginSignup.css';
-import { useNavigate } from "react-router-dom"
-
+import { useNavigation } from '@react-navigation/native';
 
 const LoginSignup = ({setIsLoggedIn}) => {
   const [action, setAction] = useState('Sign Up');
@@ -14,7 +13,8 @@ const LoginSignup = ({setIsLoggedIn}) => {
   };
   const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSignUp = async () => {
+
+  const handleSubmit = async () => {
     try {
       const response = await fetch('https://json-server-ogfs.onrender.com/users', {
         method: 'POST',
@@ -24,43 +24,29 @@ const LoginSignup = ({setIsLoggedIn}) => {
         body: JSON.stringify({ name, email, password }),
       });
 
-      const data = await response.json();
-      console.log('User added:', data);
-      if (response.status === 201) {
-        setSuccessMessage('Signup successful! You can now log in.');
-      } else {
-        setSuccessMessage('');
-      }
-    } catch (err) {
-      console.error('Error:', err);
-    }
-  };
+        const data = await response.json();
+        console.log('User added:', data);
+      if (action === 'Login') {
+        const response = await fetch('http://localhost:3030/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch('https://json-server-ogfs.onrender.com/users', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      const data = await response.json();
-      const matchingUser = data.find(
-        (user) => user.email === email && user.password === password
-      );
-  
-      if (matchingUser) {
-        console.log('Login successful');
-        setIsLoggedIn(true); 
-        setSuccessMessage('Login successful!');
-        handleGoBack();
-      } else {
-        console.log('Login failed');
-        setIsLoggedIn(false);
-        setSuccessMessage('Login failed. Please check your credentials.');
-
+        const data = await response.json();
+        if (data.success) {
+          console.log('Login successful');
+          
+        } else {
+          console.log('Login failed');
+        }
       }
+      // Clear input fields after submission
+        setName('');
+        setEmail('');
+        setPassword('');
     } catch (err) {
       console.error('Error:', err);
     }
@@ -108,9 +94,7 @@ const LoginSignup = ({setIsLoggedIn}) => {
         <div
           className={action === 'Sign Up' ? 'Submit' : 'submit-active'}
           onClick={() => {
-            if (action === 'Sign Up') {
-              handleSignUp();
-            }
+            if (action === 'Sign Up') 
             setAction('Sign Up');
           }}
         >
@@ -119,19 +103,15 @@ const LoginSignup = ({setIsLoggedIn}) => {
         <div
           className={action === 'Login' ? 'Submit' : 'submit-inactive'}
           onClick={() => {
-            if (action === 'Login') {
-              handleLogin();
-            }
+            if (action === 'Login') 
             setAction('Login');
           }}
         >
-          Login
-        </div>
-      </div>
-      {successMessage && <div style={{color:"green",fontWeight:"1000"}}>{successMessage}</div>}
 
+          Login
+            </div>  
+        </div>
     </div>
-  );
-};
+  )};
 
 export default LoginSignup;
