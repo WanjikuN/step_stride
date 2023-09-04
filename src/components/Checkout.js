@@ -113,7 +113,7 @@ function Checkout({emptyCart}) {
 
       if (response.ok) {
         console.log("Order submitted successfully");
-        setShowSuccessMessage(true);
+        
         emptyCart();
         setOrder({
           name: "",
@@ -123,6 +123,7 @@ function Checkout({emptyCart}) {
           paymentDetails:"",
           orderId: generatedOrderId,
         });
+        setShowSuccessMessage(true);
       } else {
         console.error("Failed to submit order");
       }
@@ -217,7 +218,7 @@ function Checkout({emptyCart}) {
       </CheckoutForm>
       {showSuccessMsg && (
           <SuccessMsg>
-            Order submitted successfully. Order ID: {generatedOrderId}
+            Order submitted successfully. Order ID: {order.orderId}
           </SuccessMsg>
         )}
     </CheckoutContainer>
