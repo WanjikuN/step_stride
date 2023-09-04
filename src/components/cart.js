@@ -3,7 +3,7 @@ import { useNavigate, NavLink } from "react-router-dom"
 import './cart.css';
 import CartItem from './CartItem';
 
-function ShoppingCart({ cart, removeFromCart }) {
+function ShoppingCart({ cart, removeFromCart,isLoggedIn }) {
       const calculateTotalPrice = () => {
         return cart.reduce((total, item) => total + item.price, 0);
     };
@@ -95,7 +95,7 @@ function ShoppingCart({ cart, removeFromCart }) {
             
             <h2 id="total">Total: $ {calculateTotalPrice().toFixed(2)}</h2>
             {
-           cart.length === 0 ? null: <NavLink to="/checkout" style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
+           cart.length === 0 ? null: <NavLink to={isLoggedIn?"/checkout":"/login"} style={{color: "black"}}><h2>Proceed to Checkout</h2></NavLink> 
             }
             
           </div>
