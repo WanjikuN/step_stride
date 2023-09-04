@@ -10,7 +10,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 30px;
+  padding: 20px 30px;
   border-radius: 4px;
 `;
 
@@ -49,11 +49,16 @@ const LinksContainer = styled.div`
   display: flex;
 `;
 
-function Navbar({ cartLength }) {
+function Navbar({ cartLength, isLoggedIn, onLogout }) {
+  const handleLogout = () => {
+    if (isLoggedIn ) {
+      onLogout();
+    }
+  };
   return (
     <Nav>
       <Logo>
-        <span>Step & Stride</span>
+        <NavLink to="/">Step & Stride</NavLink>
       </Logo>
       <LinksContainer>
         <List>
@@ -61,20 +66,24 @@ function Navbar({ cartLength }) {
             <NavLink to="/">Home</NavLink>
           </ListItem>
           <ListItem>
-            <NavLink to="/about">About</NavLink>
+          <NavLink to="/orders" >Orders</NavLink>
           </ListItem>
           <ListItem>
             <NavLink to="/contact">Contact</NavLink>
           </ListItem>
-          <ListItem>
-            <NavLink to="/login">Login</NavLink>
-          </ListItem>
+          
+          
         </List>
+
       </LinksContainer>
+      
+       <NavLink style={{padding:"20px"}} to="/login" onClick={handleLogout}>{isLoggedIn? "Logout":"Login"}</NavLink>
+         
       <NavLink to="/cart" className="length">
         <CartIcon id="ca" icon={faShoppingCart} size="lg" />
         <p id="count">{cartLength}</p>
       </NavLink>
+      
     </Nav>
   );
 }

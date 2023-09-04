@@ -16,7 +16,7 @@ export default function ProductDetail(){
       };
     // console.log(params)
     useEffect(()=>{
-        fetch(`http://localhost:3030/sneakers/${params.id}`)
+        fetch(`https://json-server-ogfs.onrender.com/sneakers/${params.id}`)
         .then(res => res.json())
         .then(data => setDetails(data))
     },[params.id])
