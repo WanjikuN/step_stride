@@ -49,7 +49,12 @@ const LinksContainer = styled.div`
   display: flex;
 `;
 
-function Navbar({ cartLength }) {
+function Navbar({ cartLength, isLoggedIn, onLogout }) {
+  const handleLogout = () => {
+    if (isLoggedIn ) {
+      onLogout();
+    }
+  };
   return (
     <Nav>
       <Logo>
@@ -72,7 +77,7 @@ function Navbar({ cartLength }) {
 
       </LinksContainer>
       
-       <NavLink style={{padding:"20px"}} to="/login">Login</NavLink>
+       <NavLink style={{padding:"20px"}} to="/login" onClick={handleLogout}>{isLoggedIn? "Logout":"Login"}</NavLink>
          
       <NavLink to="/cart" className="length">
         <CartIcon id="ca" icon={faShoppingCart} size="lg" />
