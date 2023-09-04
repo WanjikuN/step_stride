@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import './LoginSignup.css'
-import { useHistory } from 'react-router-dom'
+import React, {useState} from 'react';
+import './LoginSignup.css';
+import { useNavigation } from '@react-navigation/native';
 
 const  LoginSignup = () => {
   const [action, setAction] = useState("Sign Up");
@@ -8,6 +8,8 @@ const  LoginSignup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  // Get the navigation object
+  const navigation = useNavigation();
 
   const handleSubmit = async () => {
     try {
@@ -23,24 +25,25 @@ const  LoginSignup = () => {
         console.log('User added:', data);
       if (action === 'Login') {
         const response = await fetch('http://localhost:3030/users', {
-          method: 'GET',
-      });
+          method: 'POST',
+          headers: {
+            'Content-Type' : 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
 
-      const users = await response.json();
-      const user = users.find(user => user.email === email && user.password === password);
-   
-        if (user) {
+        const data = await response.json();
+        if (data.success) {
           console.log('Login successful');
-          
+         navigation.navigate("/checkout")
         } else {
           console.log('Login failed');
         }
       }
-
-      setName("");
-      setEmail("");
-      setPassword("");
-
+      // Clear input fields after submission
+        setName('');
+        setEmail('');
+        setPassword('');
     } catch (err) {
       console.error('Error:', err);
     }
@@ -70,7 +73,7 @@ const  LoginSignup = () => {
         </div>
         </div>
           <div className="Submit-container">
-          <div className={action==="Sign Up" ? "Submit" : "submit-active"}onClick={()=>{if(action === "Sign Up") {handleSubmit();} setAction('Sign Up')}} >Sign Up</div>
+          <div className={action==="Sign Up" ? "Submit" : "submit-active"}onClick={()=>{if(action === "Sign Up") {handleSubmit();}setAction('Sign Up')}}>Sign Up</div>
           <div className={action==="Login" ? "Submit" : "submit-inactive"}onClick={()=>{if(action === "Login") {handleSubmit();} setAction('Login') }} >Login</div>
        </div>  
     </div>
