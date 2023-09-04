@@ -47,56 +47,109 @@ const SubmitButton = styled.button`
     background-color: darkgreen;
   }
 `;
+const SuccessMsg = styled.p`
+  color: green;
+  font-weight: 1000;
+`;
 
 function Checkout({emptyCart}) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const [paymentDetails, setPaymentDetails] = useState("");
-
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [paymentMethod, setPaymentMethod] = useState("");
+  // const [paymentDetails, setPaymentDetails] = useState("");
+  const[order, setOrder] = useState({
+    name: "",
+    email: "",
+    address: "",
+    paymentMethod: "",
+    paymentDetails:"",
+    orderId: "",
+  });
+  function handleChange(e) {
+    e.preventDefault();
+    const { id, value } = e.target;
+    setOrder((prevOrder) => ({
+      ...prevOrder,
+      [id]: value,
+    }));
+  }
+  function generateRandomOrderId() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const orderIdLength = 10; 
+    let orderId = '';
+  
+    for (let i = 0; i < orderIdLength; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      orderId += characters.charAt(randomIndex);
+    }
+  
+    return orderId;
+  }
+  const [showSuccessMsg, setShowSuccessMessage] = useState(false);
+  const generatedOrderId = generateRandomOrderId();
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(order.name)
+    
 
+    const orderObj ={
+      name: order.name,
+      email: order.email,
+      address: order.address,
+      paymentMethod: order.paymentMethod,
+      paymentDetails: order.paymentDetails,
+      orderId: generatedOrderId,
+      status: "On its way"
+    }
     try {
-      const response = await fetch("/submit-order", {
+      const response = await fetch("https://json-server-ogfs.onrender.com/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, address, paymentMethod, paymentDetails }),
+        body: JSON.stringify( orderObj ),
       });
 
       if (response.ok) {
         console.log("Order submitted successfully");
-        
+        setShowSuccessMessage(true);
+        emptyCart();
+        setOrder({
+          name: "",
+          email: "",
+          address: "",
+          paymentMethod: "",
+          paymentDetails:"",
+          orderId: generatedOrderId,
+        });
       } else {
         console.error("Failed to submit order");
       }
     } catch (error) {
       console.error("An error occurred", error);
     }
+    
   };
   const navigate = useNavigate();
   const handleGoBack = () => {
       navigate(-1);
     };
-   const handleClick=()=>{
-     emptyCart();
-   } 
+    
   return (
     <>
      <p id="back" onClick={handleGoBack} style={{fontSize:"30px",position:"absolute", marginLeft:"40px",marginTop:"40px",color:"black"}}>←<span style={{fontSize:"30px"}}>Back</span></p>
     <CheckoutContainer>
       
       <CheckoutForm onSubmit={handleSubmit}>
+        <input type="hidden" value={order.orderId}/>
         <FormField>
           <Label htmlFor="name">Name:</Label>
           <Input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={order.name}
+            onChange={handleChange}
             required
           />
         </FormField>
@@ -105,8 +158,8 @@ function Checkout({emptyCart}) {
           <Input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={order.email}
+            onChange={handleChange}
             required
           />
         </FormField>
@@ -115,8 +168,8 @@ function Checkout({emptyCart}) {
           <Input
             type="text"
             id="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={order.address}
+            onChange={handleChange}
             required
           />
         </FormField>
@@ -124,8 +177,8 @@ function Checkout({emptyCart}) {
           <Label htmlFor="paymentMethod">Payment Method:</Label>
           <Select
             id="paymentMethod"
-            value={paymentMethod}
-            onChange={(e) => setPaymentMethod(e.target.value)}
+            value={order.paymentMethod}
+            onChange={handleChange}
             required
           >
             <option value="">Select Payment Method</option>
@@ -135,33 +188,38 @@ function Checkout({emptyCart}) {
           </Select>
         </FormField>
       
-        {paymentMethod === "mpesa" && (
+        {order.paymentMethod === "mpesa" && (
           <FormField>
             <Label htmlFor="mpesaNumber">M-Pesa Number:</Label>
             <Input
               type="text"
-              id="mpesaNumber"
-              value={paymentDetails}
-              onChange={(e) => setPaymentDetails(e.target.value)}
+              id="paymentDetails"
+              value={order.paymentDetails}
+              onChange={handleChange}
               required
             />
           </FormField>
         )}
-        {paymentMethod === "mastercard" && (
+        {order.paymentMethod === "mastercard" && (
           <FormField>
             <Label htmlFor="cardNumber">Card Number:</Label>
             <Input
               type="text"
-              id="cardNumber"
-              value={paymentDetails}
-              onChange={(e) => setPaymentDetails(e.target.value)}
+              id="paymentDetails"
+              value={order.paymentDetails}
+              onChange={handleChange}
               required
             />
           </FormField>
         )}
         
-        <SubmitButton type="submit" onClick={handleClick}>Place Order</SubmitButton>
+        <SubmitButton type="submit" >Place Order</SubmitButton>
       </CheckoutForm>
+      {showSuccessMsg && (
+          <SuccessMsg>
+            Order submitted successfully. Order ID: {generatedOrderId}
+          </SuccessMsg>
+        )}
     </CheckoutContainer>
     </>
   );
